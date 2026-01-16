@@ -6,13 +6,14 @@ class Program
     static void Main(string[] args)
     {
         
-        Console.Write("What is the magic number? ");
-        string magicAnswer = Console.ReadLine();
-        int magicNumber = int.Parse(magicAnswer);
-        int guessNumber, count = 0;
-        string response = null;
         
+    
+        string response = null;
         do {
+            Random randomGenerator = new Random ();
+            int magicNumber = randomGenerator.Next(1,100);
+            int guessNumber, count = 0;
+            
             do 
             {
                 count += 1;
@@ -39,6 +40,6 @@ class Program
             Console.Write("Do you still want to play? ");
             response = Console.ReadLine();
 
-            } while (response != "yes");
+            } while (response != "no");
     }
 }
