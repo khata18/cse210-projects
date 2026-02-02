@@ -1,3 +1,4 @@
+using System.IO; 
 public class Journal
 {
     public List<string>_entry = new List<string>();
@@ -28,5 +29,19 @@ public class Journal
             Console.WriteLine(written);
         }
         
+    }
+
+    public void SaveEntry(List<string> _entry)
+    {
+        Console.WriteLine("What is the file name?");
+        string filename = Console.ReadLine();
+
+        using (StreamWriter outputFile = new StreamWriter(filename))
+        {
+           foreach (string written in _entry)
+        {
+            outputFile.WriteLine(written);
+        } 
+        }
     }
 }

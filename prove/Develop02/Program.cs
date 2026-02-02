@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.IO; 
 
 class Program
 {
@@ -49,7 +50,7 @@ class Program
             }
             else if (response == "4")
             {
-                
+                myJorunal.SaveEntry(myJorunal._entry);
             }
             else if (response == "5")
             {
