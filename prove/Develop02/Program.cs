@@ -46,7 +46,7 @@ class Program
             }
             else if (response == "3")
             {
-                
+                myJorunal.LoadFile();
             }
             else if (response == "4")
             {

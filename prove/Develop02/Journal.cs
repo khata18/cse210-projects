@@ -17,7 +17,7 @@ public class Journal
         Console.Write(">");
         string entry = Console.ReadLine();
 
-        string datedEntry = $"Date: {_dateText} - Prompt: {randomPrompt} \n {entry}";
+        string datedEntry = $"Date: {_dateText} - Prompt: {randomPrompt} \n {entry} \n";
         _entry.Add(datedEntry);
 
     }
@@ -29,6 +29,19 @@ public class Journal
             Console.WriteLine(written);
         }
         
+    }
+
+    public void LoadFile(){
+        Console.WriteLine("What is the file name?");
+        string filename = Console.ReadLine();
+
+        string [] lines = System.IO.File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            _entry.Add(line);
+        }
+
     }
 
     public void SaveEntry(List<string> _entry)
