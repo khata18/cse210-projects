@@ -28,7 +28,8 @@ class Program
             Console.WriteLine("2. Display"); 
             Console.WriteLine("3. Load"); 
             Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit"); 
+            Console.WriteLine("5. Edit Prompts");
+            Console.WriteLine("6. Quit"); 
             Console.Write("What would you like to do? ");
 
             string response = Console.ReadLine();
@@ -52,7 +53,7 @@ class Program
             }
             else if (response == "5")
             {
-                loop = true;
+                break;
             }
             else
             {
