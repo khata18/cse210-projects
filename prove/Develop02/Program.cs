@@ -51,9 +51,15 @@ class Program
             {
                 myJorunal.SaveEntry(myJorunal._entry);
             }
-            else if (response == "5")
+              else if (response == "5")
             {
-                break;
+                Console.WriteLine("Add a Prompt");
+                Console.WriteLine("Delete a Prompt");
+                Console.Write("Please select an option: ");
+            }
+            else if (response == "6")
+            {
+                loop = true;
             }
             else
             {
