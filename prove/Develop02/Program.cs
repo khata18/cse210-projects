@@ -30,7 +30,8 @@ class Program
             Console.WriteLine("2. Display"); 
             Console.WriteLine("3. Load"); 
             Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit"); 
+            Console.WriteLine("5. Edit Prompts");
+            Console.WriteLine("6. Quit"); 
             Console.Write("What would you like to do? ");
 
             string response = Console.ReadLine();
@@ -54,7 +55,13 @@ class Program
             }
             else if (response == "5")
             {
-                break;
+                Console.WriteLine("Add a Prompt");
+                Console.WriteLine("Delete a Prompt");
+                Console.Write("Please select an option: ");
+            }
+            else if (response == "6")
+            {
+                loop = true;
             }
             else
             {

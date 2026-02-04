@@ -12,4 +12,15 @@ public class Prompt
         string randomPrompt = _prompt[randomIndex];
         return randomPrompt;
     }
+
+    public void AddPrompt()
+    {
+        
+    }
+
+    public void DeletePrompt()
+    {
+        
+    }
+        
 }
