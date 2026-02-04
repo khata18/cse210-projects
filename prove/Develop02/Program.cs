@@ -15,8 +15,6 @@ class Program
         myPrompt._prompt.Add("What are the accomplishments that you did today?");
         myPrompt._prompt.Add("What was the most challenging thing I faced today?");
 
-            
-
         Journal myJorunal = new Journal ();
         
         bool loop = false;
@@ -54,7 +52,7 @@ class Program
             }
             else if (response == "5")
             {
-                break;
+                loop = true;
             }
             else
             {
