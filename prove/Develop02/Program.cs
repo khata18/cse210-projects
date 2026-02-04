@@ -56,6 +56,7 @@ class Program
                 Console.WriteLine("Add a Prompt");
                 Console.WriteLine("Delete a Prompt");
                 Console.Write("Please select an option: ");
+                string editResponse = Console.ReadLine();
             }
             else if (response == "6")
             {
