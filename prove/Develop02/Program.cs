@@ -3,6 +3,9 @@ using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.IO; 
 
+
+// I added a feature under 1. Write. It will ask if the entry is for today or for another date so that users can add entries from the past or have skipped a day in their journaling.
+
 class Program
 {
     static void Main(string[] args)
