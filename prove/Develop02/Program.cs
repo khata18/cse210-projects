@@ -28,8 +28,7 @@ class Program
             Console.WriteLine("2. Display"); 
             Console.WriteLine("3. Load"); 
             Console.WriteLine("4. Save");
-            Console.WriteLine("5. Edit Prompts");
-            Console.WriteLine("6. Quit"); 
+            Console.WriteLine("5. Quit"); 
             Console.Write("What would you like to do? ");
 
             string response = Console.ReadLine();
@@ -51,14 +50,7 @@ class Program
             {
                 myJorunal.SaveEntry(myJorunal._entry);
             }
-              else if (response == "5")
-            {
-                Console.WriteLine("Add a Prompt");
-                Console.WriteLine("Delete a Prompt");
-                Console.Write("Please select an option: ");
-                string editResponse = Console.ReadLine();
-            }
-            else if (response == "6")
+            else if (response == "5")
             {
                 loop = true;
             }

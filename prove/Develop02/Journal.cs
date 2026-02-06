@@ -7,18 +7,39 @@ public class Journal
      Prompt myPrompt = new Prompt ();
     public void GetEntry(List<string> _prompt)
     {
-        
+        Console.Write("Is this entry for today? (yes/no) ");
+        string answer = Console.ReadLine();
 
-        string _dateText = _theCurrentTime.ToShortDateString();
+        if (answer == "yes")
+        {
+            string _dateText = _theCurrentTime.ToShortDateString();
 
-        
-        string randomPrompt = myPrompt.GetRandomList(_prompt);
-        Console.WriteLine(randomPrompt);
-        Console.Write(">");
-        string entry = Console.ReadLine();
+            
+            string randomPrompt = myPrompt.GetRandomList(_prompt);
+            Console.WriteLine(randomPrompt);
+            Console.Write(">");
+            string entry = Console.ReadLine();
 
-        string datedEntry = $"Date: {_dateText} - Prompt: {randomPrompt} \n {entry} \n";
-        _entry.Add(datedEntry);
+            string datedEntry = $"Date: {_dateText} - Prompt: {randomPrompt} \n {entry} \n";
+            _entry.Add(datedEntry);
+        }
+        else if (answer == "no")
+        {
+            Console.WriteLine("What date is it for? (MM/DD/YYYY)");
+            string customDate = Console.ReadLine();
+            DateTime readCustomDate = DateTime.Parse(customDate);
+            string stringOnlyDate = readCustomDate.ToShortDateString();
+
+            string randomPrompt = myPrompt.GetRandomList(_prompt);
+            Console.WriteLine(randomPrompt);
+            Console.Write(">");
+            string entry = Console.ReadLine();
+
+            string datedEntry = $"Date: {stringOnlyDate} - Prompt: {randomPrompt} \n {entry} \n";
+            _entry.Add(datedEntry);
+        }
+
+            
 
     }
     

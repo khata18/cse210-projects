@@ -13,14 +13,6 @@ public class Prompt
         return randomPrompt;
     }
 
-    public void AddPrompt()
-    {
-        
-    }
 
-    public void DeletePrompt()
-    {
-        
-    }
         
 }
