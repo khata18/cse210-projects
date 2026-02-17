@@ -1,12 +1,10 @@
-using System.IO; 
-public class Journal
+public class Entry
 {
-    public List<string>_entry = new List<string>();
-    public List<Entry>_listEntry = new List<Entry>();
     public DateTime _theCurrentTime = DateTime.Now;
-   
-     Prompt myPrompt = new Prompt ();
+    public string _entry;
 
+         Prompt myPrompt = new Prompt ();
+         Journal myJournal = new Journal ();
     public void GetEntry(List<string> _prompt)
     {
         Console.Write("Is this entry for today? (yes/no) ");
@@ -23,8 +21,9 @@ public class Journal
             string entry = Console.ReadLine();
 
             string datedEntry = $"Date: {_dateText} - Prompt: {_randomPrompt} \n {entry} \n";
-            _entry.Add(datedEntry);
+            myJournal._listEntry.Add(datedEntry);
         }
+
         else if (answer == "no")
         {
             Console.WriteLine("What date is it for? (MM/DD/YYYY)");
@@ -38,46 +37,11 @@ public class Journal
             string entry = Console.ReadLine();
 
             string datedEntry = $"Date: {_stringOnlyDate} - Prompt: {randomPrompt} \n {entry} \n";
-            _entry.Add(datedEntry);
+            myJournal._listEntry.Add(datedEntry);
         }
-
-            
-
-    }
     
-    public void DisplayEntry(List<string> _entry)
+    public void DisplayEntry()
     {
-        foreach (string written in _entry)
-        {
-            Console.WriteLine(written);
-        }
-        
-    }
-
-    public void LoadFile(){
-        Console.WriteLine("What is the file name?");
-        string filename = Console.ReadLine();
-
-        string [] lines = System.IO.File.ReadAllLines(filename);
-
-        foreach (string line in lines)
-        {
-            _entry.Add(line);
-        }
-
-    }
-
-    public void SaveEntry(List<string> _entry)
-    {
-        Console.WriteLine("What is the file name?");
-        string filename = Console.ReadLine();
-
-        using (StreamWriter outputFile = new StreamWriter(filename))
-        {
-           foreach (string written in _entry)
-        {
-            outputFile.WriteLine(written);
-        } 
-        }
+        Console.WriteLine($"Date: {_dateText} - Prompt: {randomPrompt} \n {entry} \n");
     }
 }
