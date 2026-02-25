@@ -19,6 +19,7 @@ class Program
         myPrompt._prompt.Add("What was the most challenging thing I faced today?");
 
         Journal myJorunal = new Journal ();
+        Entry myEntry = new Entry ();
         
         bool loop = false;
         do
@@ -38,20 +39,20 @@ class Program
             
             if (response == "1")
             {
-                myJorunal.GetEntry(myPrompt._prompt);
+                myEntry.GetEntry(myPrompt._prompt);
 
             }
             else if (response == "2")
             {
-               myJorunal.DisplayEntry(myJorunal._entry); 
+            //    myJorunal.DisplayEntry(myJorunal._entry); 
             }
             else if (response == "3")
             {
-                myJorunal.LoadFile();
+                // myJorunal.LoadFile();
             }
             else if (response == "4")
             {
-                myJorunal.SaveEntry(myJorunal._entry);
+                // myJorunal.SaveEntry(myJorunal._entry);
             }
             else if (response == "5")
             {

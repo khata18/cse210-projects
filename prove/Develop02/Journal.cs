@@ -7,77 +7,79 @@ public class Journal
    
      Prompt myPrompt = new Prompt ();
 
-    public void GetEntry(List<string> _prompt)
-    {
-        Console.Write("Is this entry for today? (yes/no) ");
-        string answer = Console.ReadLine();
+    // public void GetEntry(List<string> _prompt)
+    // {
+    //     Console.Write("Is this entry for today? (yes/no) ");
+    //     string answer = Console.ReadLine();
 
-        if (answer == "yes")
-        {
-            string _dateText = _theCurrentTime.ToShortDateString();
-
-            
-            string _randomPrompt = myPrompt.GetRandomList(_prompt);
-            Console.WriteLine(_randomPrompt);
-            Console.Write(">");
-            string entry = Console.ReadLine();
-
-            string datedEntry = $"Date: {_dateText} - Prompt: {_randomPrompt} \n {entry} \n";
-            _entry.Add(datedEntry);
-        }
-        else if (answer == "no")
-        {
-            Console.WriteLine("What date is it for? (MM/DD/YYYY)");
-            string _customDate = Console.ReadLine();
-            DateTime _readCustomDate = DateTime.Parse(_customDate);
-            string _stringOnlyDate = _readCustomDate.ToShortDateString();
-
-            string randomPrompt = myPrompt.GetRandomList(_prompt);
-            Console.WriteLine(randomPrompt);
-            Console.Write(">");
-            string entry = Console.ReadLine();
-
-            string datedEntry = $"Date: {_stringOnlyDate} - Prompt: {randomPrompt} \n {entry} \n";
-            _entry.Add(datedEntry);
-        }
+    //     if (answer == "yes")
+    //     {
+    //         string _dateText = _theCurrentTime.ToShortDateString();
 
             
+    //         string _randomPrompt = myPrompt.GetRandomList(_prompt);
+    //         Console.WriteLine(_randomPrompt);
+    //         Console.Write(">");
+    //         string entry = Console.ReadLine();
 
-    }
+    //         string datedEntry = $"Date: {_dateText} - Prompt: {_randomPrompt} \n {entry} \n";
+    //         _entry.Add(datedEntry);
+    //     }
+    //     else if (answer == "no")
+    //     {
+    //         Console.WriteLine("What date is it for? (MM/DD/YYYY)");
+    //         string _customDate = Console.ReadLine();
+    //         DateTime _readCustomDate = DateTime.Parse(_customDate);
+    //         string _stringOnlyDate = _readCustomDate.ToShortDateString();
+
+    //         string randomPrompt = myPrompt.GetRandomList(_prompt);
+    //         Console.WriteLine(randomPrompt);
+    //         Console.Write(">");
+    //         string entry = Console.ReadLine();
+
+    //         string datedEntry = $"Date: {_stringOnlyDate} - Prompt: {randomPrompt} \n {entry} \n";
+    //         _entry.Add(datedEntry);
+    //     }
+
+            
+
+
     
-    public void DisplayEntry(List<string> _entry)
-    {
-        foreach (string written in _entry)
-        {
-            Console.WriteLine(written);
-        }
+    // public void DisplayEntry(List<string> _entry)
+    // {
+    //     foreach (string written in _entry)
+    //     {
+    //         Console.WriteLine(written);
+    //     }
         
-    }
+    // }
 
-    public void LoadFile(){
-        Console.WriteLine("What is the file name?");
-        string filename = Console.ReadLine();
+    // public void LoadFile(){
+    //     Console.WriteLine("What is the file name?");
+    //     string filename = Console.ReadLine();
 
-        string [] lines = System.IO.File.ReadAllLines(filename);
+    //     string [] lines = System.IO.File.ReadAllLines(filename);
 
-        foreach (string line in lines)
-        {
-            _entry.Add(line);
-        }
+    //     foreach (string line in lines)
+    //     {
+    //         _entry.Add(line);
+    //     }
 
-    }
+    // }
 
-    public void SaveEntry(List<string> _entry)
-    {
-        Console.WriteLine("What is the file name?");
-        string filename = Console.ReadLine();
+    // public void SaveEntry(List<string> _entry)
+    // {
+    //     Console.WriteLine("What is the file name?");
+    //     string filename = Console.ReadLine();
 
-        using (StreamWriter outputFile = new StreamWriter(filename))
-        {
-           foreach (string written in _entry)
-        {
-            outputFile.WriteLine(written);
-        } 
-        }
-    }
+    //     using (StreamWriter outputFile = new StreamWriter(filename))
+    //     {
+    //        foreach (string written in _entry)
+    //     {
+    //         outputFile.WriteLine(written);
+    //     } 
+    //     }
+    // }
+
+
 }
