@@ -10,6 +10,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Journal myJournal = new Journal ();
+        Entry myEntry = new Entry ();
         Prompt myPrompt = new Prompt();
         myPrompt._prompt.Add("Who was the most interesting person I interacted with today?");
         myPrompt._prompt.Add("What are the things that I am grateful for?");
@@ -18,8 +20,7 @@ class Program
         myPrompt._prompt.Add("What are the accomplishments that you did today?");
         myPrompt._prompt.Add("What was the most challenging thing I faced today?");
 
-        Journal myJorunal = new Journal ();
-        Entry myEntry = new Entry ();
+        
         
         bool loop = false;
         do
@@ -39,20 +40,20 @@ class Program
             
             if (response == "1")
             {
-                myEntry.GetEntry(myPrompt._prompt);
+                myJournal.GetEntry(myPrompt._prompt);
 
             }
             else if (response == "2")
             {
-            //    myJorunal.DisplayEntry(myJorunal._entry); 
+                myJournal.DisplayEntry();
             }
             else if (response == "3")
             {
-                // myJorunal.LoadFile();
+                myJournal.LoadFile();
             }
             else if (response == "4")
             {
-                // myJorunal.SaveEntry(myJorunal._entry);
+                myJournal.SaveEntry();
             }
             else if (response == "5")
             {
