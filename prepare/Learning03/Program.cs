@@ -35,7 +35,7 @@ class Program
     //     Console.WriteLine(thirdFraction.GetDecimalValue());
 
 
-        Fraction newFraction = new Fraction ();
+     
 
         int count = 0;
 
@@ -48,9 +48,10 @@ class Program
 
             Random randomGeneratorBottom = new Random();
             int randomBottom = randomGeneratorTop.Next(1,10);
+            Fraction newFraction = new Fraction (randomTop, randomBottom);
 
-            newFraction.SetTop(randomTop);
-            newFraction.SetBottom(randomBottom);
+            // newFraction.SetTop(randomTop);
+            // newFraction.SetBottom(randomBottom);
 
             Console.WriteLine($"Fraction {count}: string: {newFraction.GetFractionString()} Number: {newFraction.GetDecimalValue()}");
         }
