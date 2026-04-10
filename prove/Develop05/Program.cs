@@ -22,15 +22,35 @@ class Program
             Console.WriteLine("  6. Quit");
             Console.Write("Choice: ");
 
-            switch (Console.ReadLine())
+            string input = Console.ReadLine();
+            if (input == "1")
             {
-                case "1": manager.CreateNewGoal(); break;
-                case "2": Console.WriteLine(); manager.DisplayGoals(); break;
-                case "3": manager.RecordEvent(); break;
-                case "4": manager.SaveGoals(); break;
-                case "5": manager.LoadGoals(); break;
-                case "6": running = false; break;
-                default:  Console.WriteLine("Invalid choice."); break;
+                manager.CreateNewGoal();
+            }
+            else if (input == "2")
+            {
+                Console.WriteLine();
+                manager.DisplayGoals();
+            }
+            else if (input == "3")
+            {
+                manager.RecordEvent();
+            }
+            else if (input == "4")
+            {
+                manager.SaveGoals();
+            }
+            else if (input == "5")
+            {
+                manager.LoadGoals();
+            }
+            else if (input == "6")
+            {
+                running = false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
             }
         }
         Console.WriteLine("Farewell, adventurer. Keep up the quest!");

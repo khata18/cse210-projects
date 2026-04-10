@@ -40,36 +40,35 @@ class GoalManager
         Console.Write("Short description: ");
         string desc = Console.ReadLine();
 
-        switch (choice)
+        if (choice == "1")
         {
-            case "1":
-                Console.Write("Points for completing this goal: ");
-                _goals.Add(new SimpleGoal(name, desc, int.Parse(Console.ReadLine())));
-                break;
-
-            case "2":
-                Console.Write("Points each time you record this goal: ");
-                _goals.Add(new EternalGoal(name, desc, int.Parse(Console.ReadLine())));
-                break;
-
-            case "3":
-                Console.Write("Points per completion: ");
-                int pts = int.Parse(Console.ReadLine());
-                Console.Write("Number of times required: ");
-                int req = int.Parse(Console.ReadLine());
-                Console.Write("Bonus for reaching the target: ");
-                int bonus = int.Parse(Console.ReadLine());
-                _goals.Add(new ChecklistGoal(name, desc, pts, req, bonus));
-                break;
-
-            case "4":
-                Console.Write("Points you will LOSE each time this is recorded: ");
-                _goals.Add(new NegativeGoal(name, desc, int.Parse(Console.ReadLine())));
-                break;
-
-            default:
-                Console.WriteLine("Invalid choice — goal not created.");
-                return;
+            Console.Write("Points for completing this goal: ");
+            _goals.Add(new SimpleGoal(name, desc, int.Parse(Console.ReadLine())));
+        }
+        else if (choice == "2")
+        {
+            Console.Write("Points each time you record this goal: ");
+            _goals.Add(new EternalGoal(name, desc, int.Parse(Console.ReadLine())));
+        }
+        else if (choice == "3")
+        {
+            Console.Write("Points per completion: ");
+            int pts = int.Parse(Console.ReadLine());
+            Console.Write("Number of times required: ");
+            int req = int.Parse(Console.ReadLine());
+            Console.Write("Bonus for reaching the target: ");
+            int bonus = int.Parse(Console.ReadLine());
+            _goals.Add(new ChecklistGoal(name, desc, pts, req, bonus));
+        }
+        else if (choice == "4")
+        {
+            Console.Write("Points you will LOSE each time this is recorded: ");
+            _goals.Add(new NegativeGoal(name, desc, int.Parse(Console.ReadLine())));
+        }
+        else
+        {
+            Console.WriteLine("Invalid choice — goal not created.");
+            return;
         }
         Console.WriteLine("Goal created!");
     }
@@ -139,25 +138,26 @@ class GoalManager
             string type = line.Substring(0, sep);
             string[] p = line.Substring(sep + 1).Split('~');
 
-            switch (type)
+            if (type == "SimpleGoal")
             {
-                case "SimpleGoal":
-                    // p: name, desc, points, isComplete
-                    _goals.Add(new SimpleGoal(p[0], p[1], int.Parse(p[2]), bool.Parse(p[3])));
-                    break;
-                case "EternalGoal":
-                    // p: name, desc, points, timesCompleted
-                    _goals.Add(new EternalGoal(p[0], p[1], int.Parse(p[2]), int.Parse(p[3])));
-                    break;
-                case "ChecklistGoal":
-                    // p: name, desc, points, amountCompleted, requiredAmount, bonus
-                    _goals.Add(new ChecklistGoal(p[0], p[1], int.Parse(p[2]),
-                        int.Parse(p[4]), int.Parse(p[5]), int.Parse(p[3])));
-                    break;
-                case "NegativeGoal":
-                    // p: name, desc, points, timesRecorded
-                    _goals.Add(new NegativeGoal(p[0], p[1], int.Parse(p[2]), int.Parse(p[3])));
-                    break;
+                // p: name, desc, points, isComplete
+                _goals.Add(new SimpleGoal(p[0], p[1], int.Parse(p[2]), bool.Parse(p[3])));
+            }
+            else if (type == "EternalGoal")
+            {
+                // p: name, desc, points, timesCompleted
+                _goals.Add(new EternalGoal(p[0], p[1], int.Parse(p[2]), int.Parse(p[3])));
+            }
+            else if (type == "ChecklistGoal")
+            {
+                // p: name, desc, points, amountCompleted, requiredAmount, bonus
+                _goals.Add(new ChecklistGoal(p[0], p[1], int.Parse(p[2]),
+                    int.Parse(p[4]), int.Parse(p[5]), int.Parse(p[3])));
+            }
+            else if (type == "NegativeGoal")
+            {
+                // p: name, desc, points, timesRecorded
+                _goals.Add(new NegativeGoal(p[0], p[1], int.Parse(p[2]), int.Parse(p[3])));
             }
         }
         Console.WriteLine("Goals loaded.");
